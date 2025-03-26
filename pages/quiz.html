@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+            transition: background 1s ease-in-out;
+            position: relative;
+        }
+        .quiz-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        h1 {
+            color: #ff6600;
+            font-weight: bold;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 10px 0;
+            padding: 12px;
+            background: #ff6600;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .options li:hover {
+            background: #e65c00;
+        }
+        .options li.selected {
+            background: purple;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #e65c00;
+        }
+        .timer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #ff6600;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer">Time Left: 00:30</div>
+    <div class="quiz-container" id="quiz-container">
+        <h1>Quizzy</h1>
+        <div id="question-container"></div>
+        <ul id="options-container" class="options"></ul>
+        <button id="next-btn">Next</button>
+    </div>
+    <script src="./javascript/q.js">
+        
+    </script>
+</body>
+</html>

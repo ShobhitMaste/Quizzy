@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quizzy create quiz</title>
+        <style>
+            #heading{
+                background-color : #FF5733;
+                margin:0;
+                text-align: center;
+                padding:20px;
+            }
+            h1{
+                padding-top:30px;
+                padding-bottom:30px;
+                margin:0;
+                color:white;
+                font-size:2.5em;
+            }
+            body{
+                margin:0;
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
+            .flexcenter{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .quizbody{
+                margin:30px 0px 10px 30px;
+                background-color: white;
+                border-radius: 5px;
+                padding:20px;
+            }
+            .preview_body{
+                margin:30px 30px 10px 30px;
+                background-color: white;
+                border-radius: 5px;
+                padding:20px;
+            }
+            #quizmake{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                
+            }
+            #question{
+                height:24px;
+                width:300px;
+                border:3px solid rgb(255, 70, 42);
+                border-radius: 5px;
+            }
+            .options{
+                margin:20px 10px 20px 0px;
+                border:3px solid rgb(217, 44, 44);
+                width:40%;
+                display:grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr 4fr;
+                height:30px;
+                border-radius: 5px;
+            }
+            .option{
+                width:95%;
+                border:0;
+                margin-left:2px;
+                height:27px;
+            }
+            .option:focus{
+                border:0;
+                outline:none;
+            }
+            .optionName{
+                background-color:red;
+                font-weight:700
+            }
+            .preview_options{
+                display:grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap:20px;
+                margin-top:40px;
+            }
+            .preview_option{
+                background-color:orange;
+                border-radius: 5px;
+                height:40px;
+                
+            }
+            #question_confirm{
+                font-size:1.1rem;
+                font-style: italic;
+                position:fixed;
+                top:60%;
+                font-size:1.3em;
+            }
+            #quizID{
+                position:fixed;
+                top:70%;
+                font-size:1.3em;
+            }
+        </style>
+        
+    </head>
+    <body>
+    <section id="heading">
+        <h1>Create Your Own Quiz</h1>
+    </section>
+    <section id="quizmake">
+        <div class="quizbody">
+            <h2>Add Questions Here</h2>
+            <form id="quizform" oninput="preview()">
+                <label for="question">
+                    Question - <input required type="text" id="question" name="question" placeholder="Type here">
+                </label>
+                <br>
+                <div class="options">
+                    <div class="optionName flexcenter" style="background-color:red;">
+                        A
+                    </div>
+                    <label for="A">
+                        <input class="option" type="text" id="A" name="A" value="" required>
+                    </label>
+                </div>
+
+                <div class="options" style="border:3px solid rgb(54, 202, 40);">
+                    <div class="optionName flexcenter" style="background-color:rgb(54, 202, 40);">
+                        B
+                    </div>
+                    <label for="B">
+                        <input class="option" type="text" id="B" name="B" value="" required>
+                    </label>
+                </div>
+
+                <div class="options" style="border:3px solid rgb(32, 177, 239);">
+                    <div class="optionName flexcenter" style="background-color:rgb(32, 177, 239);">
+                        C
+                    </div>
+                    <label for="C" >
+                        <input class="option" type="text" id="C" name="C" value="" required>
+                    </label>
+                </div>
+
+                <div class="options" style="border:3px solid rgb(207, 207, 54);">
+                    <div class="optionName flexcenter" style="background-color:rgb(207, 207, 54);"">
+                        D
+                    </div>
+                    <label for="D">
+                        <input class="option" type="text" id="D" name="D" value="" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="answer">Correct Answer : </label>
+                    <select name="answer" id="answer">
+                        <option value="A" selected>A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+                <br>
+                <input id="addbutton" type="submit" value="Add Question">
+                <label for="time">
+                    <br>
+                    <br>
+                    Quiz Time in Seconds - <input type="number" name="time" id="time" required>
+                </label>
+            </form><br>
+            <button id="saveQuiz">Finish</button>
+            
+        </div>
+        <div class="preview_body">
+            <h2>Preview Question Here</h2>
+            <h3 id="preview_question"></h3>
+            <div class="preview_options ">
+                <div id="PA" class="preview_option flexcenter">
+                    
+                </div>
+
+                <div id="PB" class="preview_option flexcenter">
+
+                </div>
+
+                <div id="PC" class="preview_option flexcenter">
+
+                </div>
+
+                <div id="PD" class="preview_option flexcenter">
+
+                </div>
+            </div>
+            <p id="question_confirm"></p>
+            <p id="quizID"></p>
+        </div>
+    </section>
+    <footer class="flexcenter" style="gap:20px;">
+        <p>When you click finish, Go back to main page and put your quiz code to run the quiz</p>
+    </footer>
+    <script src="./javascript/quiz.js"></script>
+</body>
+
+</html>

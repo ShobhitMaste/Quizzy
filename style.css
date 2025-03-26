@@ -1,0 +1,93 @@
+header a{
+    text-decoration: none;
+    text-align: center;
+}
+header a:hover{
+    text-decoration: underline;
+    color: black;
+}
+.orange-backgroundcolor-white-text{
+    border:0px solid black;
+    border-radius:50px;
+    background-color:#FF5733;
+    color:white;
+    padding-left:23px;
+    padding-right:23px;
+    padding-top:7px;
+    padding-bottom:7px;
+    text-align: center;
+}
+.orange-backgroundcolor-white-text:hover{
+    color: white;
+}
+.navbars{
+    color:black;
+}
+.flex-center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.fixed-position{
+    position:fixed;
+    width:100%;
+}
+.pfont {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    font-size:18px;
+}
+.mascot{
+    float:right;
+    height:350px;
+    border-radius:20px;
+}
+.short-para{
+    width:600px;    
+}
+.inline-display{
+    display:inline;
+}
+.white-background-orange-text{
+    border:2px solid #FF5733;
+    border-radius:50px;
+    background-color:white;
+    color:#FF5733;
+    padding-left:23px;
+    padding-right:23px;
+    padding-top:7px;
+    padding-bottom:7px; 
+    text-align: center;
+    text-decoration: none;
+}
+.white-background-orange-text:hover{
+    color:#FF5733;
+}
+#joinid{
+    background-color:#F5F5F5;
+    border:0px;
+}
+#joinid:focus{
+    border:0px;   
+}
+.list-para p{
+    text-align:left;
+    font-size: large;
+}
+.pricing-header{
+    background-color: #FF5733;
+}
+.pricing-body{
+    background-color: #FFB200;
+}
+.fotterbuttons{
+  background-color: rgb(86, 86, 87);
+}
+.button-color{
+  background-color: #FF5733;
+  color:white;
+}

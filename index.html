@@ -8,101 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <title>Quizzer</title>
-        <style>
-            header a{
-                text-decoration: none;
-                text-align: center;
-            }
-            header a:hover{
-                text-decoration: underline;
-                color: black;
-            }
-            .orange-backgroundcolor-white-text{
-                border:0px solid black;
-                border-radius:50px;
-                background-color:#FF5733;
-                color:white;
-                padding-left:23px;
-                padding-right:23px;
-                padding-top:7px;
-                padding-bottom:7px;
-                text-align: center;
-            }
-            .orange-backgroundcolor-white-text:hover{
-                color: white;
-            }
-            .navbars{
-                color:black;
-            }
-            .flex-center{
-                display:flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .fixed-position{
-                position:fixed;
-                width:100%;
-            }
-            .pfont {
-                font-family: "Roboto", serif;
-                font-optical-sizing: auto;
-                font-weight: 400;
-                font-style: normal;
-                font-variation-settings:
-                "wdth" 100;
-                font-size:18px;
-            }
-            .mascot{
-                float:right;
-                height:350px;
-                border-radius:20px;
-            }
-            .short-para{
-                width:600px;    
-            }
-            .inline-display{
-                display:inline;
-            }
-            .white-background-orange-text{
-                border:2px solid #FF5733;
-                border-radius:50px;
-                background-color:white;
-                color:#FF5733;
-                padding-left:23px;
-                padding-right:23px;
-                padding-top:7px;
-                padding-bottom:7px; 
-                text-align: center;
-                text-decoration: none;
-            }
-            .white-background-orange-text:hover{
-                color:#FF5733;
-            }
-            #joinid{
-                background-color:#F5F5F5;
-                border:0px;
-            }
-            #joinid:focus{
-                border:0px;   
-            }
-            .list-para p{
-                text-align:left;
-                font-size: large;
-            }
-            .pricing-header{
-                background-color: #FF5733;
-            }
-            .pricing-body{
-                background-color: #FFB200;
-            }
-            .fotterbuttons{
-              background-color: rgb(86, 86, 87);
-            }
-            .button-color{
-              background-color: #FF5733;
-              color:white;
-            }
-        </style>
+        <link href="./style.css" rel="stylesheet">
     </head>
     <body>
         <header class="pfont">
@@ -128,13 +34,13 @@
                     Get started now and join a community of curious minds ready to learn, compete, and share!"
                 </p>
                 <div class="mt-4 row mb-5">
-                    <form class="col-4">
+                    <form class="col-4" id="joinform">
                         <div class="orange-backgroundcolor-white-text">
                             <label for="joinid">Join By Id -</label>
-                            <input id="joinid" name="joinid" type="text" placeholder="#7QOD92" style="width:100px; border-radius:7px;">
+                            <input id="joinid" name="joinid" type="text" placeholder="#76323" style="width:100px; border-radius:7px;">
                         </div>
                     </form>
-                    <a href="#createQuiz" class="offset-1 col-3 white-background-orange-text">Create Quiz</a>
+                    <a href="./pages/createQuiz.html" class="offset-1 col-3 white-background-orange-text">Create Quiz</a>
                 </div>
             </div>
         </section>
@@ -204,7 +110,7 @@
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="https://th.bing.com/th/id/R.ad91de3c8d6a555f5bb1e6cc5ae3f91b?rik=YlEdUL71%2b7nnDg&riu=http%3a%2f%2fc.files.bbci.co.uk%2f18145%2fproduction%2f_113692689_quiz_1.png&ehk=X4MBIgpEedl6ZhKGWsDxrpakAyZrjV%2bi1m5UapAGNJI%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="quiz1">
+                        <img src="https://images.ctfassets.net/rvt0uslu5yqp/4zVG1eCQtjAIsLCl2mNa2e/e58a8586b81347a387db31417bc86020/Blog_Quiz_Cover-01.png?w=540&q=60" class="d-block w-100" alt="quiz1">
                       </div>
                       <div class="carousel-item">
                         <img src="https://wallpaperaccess.com/full/2384069.jpg" class="d-block w-100" alt="quiz2">
@@ -224,7 +130,7 @@
                   </div>
             </div>
         </section>
-        <section>
+        <section id="pricing">
             <div class="container py-3 mt-5 pfont">
                 <h1>Pricing</h1>
                 <main>
@@ -313,5 +219,7 @@
            <h6 class="flex-center secondary-font" style="color:white">© 2025 Quizzy. All Rights Reserved</h6>
        </footer>
         </div>
+        <!-- <script src="./pages/javascript/quiz.js"></script> -->
+        <script defer="defer" src="./index.js"></script>
     </body>
 </html
