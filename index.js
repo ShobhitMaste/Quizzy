@@ -1,4 +1,4 @@
-
+location.reload();
 const storedData = localStorage.getItem("storage");
 
 if (storedData) {
