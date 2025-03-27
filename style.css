@@ -91,3 +91,6 @@ header a:hover{
   background-color: #FF5733;
   color:white;
 }
+.hide{
+    visibility: hidden;
+}

@@ -8,6 +8,14 @@ if (storedData) {
 }
 
 window.onload=function(){
+    const user = JSON.parse(localStorage.getItem("logged"));
+    console.log(user);
+    if(user.status == 1){
+        const username = user.username;
+        document.getElementById("loginbar").classList.add("hide");
+        document.getElementById("signupbar").textContent = "Welcome Back, " + username;
+        console.log(username);
+    }
     document.getElementById("joinform").addEventListener('submit', function(event){
         event.preventDefault();
         let entered_code = document.getElementById("joinid").value;

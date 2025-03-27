@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff9800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        .toggle {
+            margin-top: 12px;
+            cursor: pointer;
+            color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="formContainer">
+        <h2 id="formTitle">Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="submitForm()">Submit</button>
+        <p class="toggle" onclick="toggleForm()">Don't have an account? Register</p>
+    </div>
+
+    <script>
+        let isLogin = true;
+        
+        function toggleForm() {
+            isLogin = !isLogin;
+            document.getElementById('formTitle').innerText = isLogin ? 'Login' : 'Register';
+            document.querySelector('.toggle').innerText = isLogin ? "Don't have an account? Register" : "Already have an account? Login";
+        }
+        
+        function submitForm() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                alert("Please fill in both fields.");
+                return;
+            }
+            
+            if (isLogin) {
+                let users = JSON.parse(localStorage.getItem("users")) || {};
+                if (users[username] && users[username] === password) {
+                    localStorage.setItem("logged", JSON.stringify({status:1, username: username}));
+                    window.location.href = "../index.html";
+                } else {
+                    alert("Invalid username or password.");
+                }
+            } else {
+                let users = JSON.parse(localStorage.getItem("users")) || {};
+                if (users[username]) {
+                    alert("Username already exists.");
+                } else {
+                    users[username] = password;
+                    localStorage.setItem("users", JSON.stringify(users));
+                    alert("Registration successful! You can now log in.");
+                    toggleForm();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
