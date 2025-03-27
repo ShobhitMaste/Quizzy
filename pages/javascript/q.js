@@ -24,13 +24,33 @@ if (!quizData || quizData.length <= 1) {
     const quizContent = document.getElementById("quiz-content");
     const scoreContainer = document.getElementById("score-container");
     const scoreElement = document.getElementById("score");
+    const timerElement = document.getElementById("timer");
+
+    let timeLeft = parseInt(time);
+    let timerInterval;
 
     startButton.addEventListener("click", () => {
         startButton.parentElement.classList.add("hidden");
         quizContent.classList.remove("hidden");
-        document.getElementById("timer").style.display = "block";
+        timerElement.style.display = "block";
+
+        timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+
         loadQuestion();
     });
+
+    function updateTimer() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerElement.innerText = `Time Left: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            showQuizCompleted();
+        }
+    }
 
     function loadQuestion() {
         if (currentQuestionIndex >= quizData.length) {
@@ -75,26 +95,9 @@ if (!quizData || quizData.length <= 1) {
     });
 
     function showQuizCompleted() {
+        clearInterval(timerInterval);
         quizContent.classList.add("hidden");
         scoreContainer.classList.remove("hidden");
         scoreElement.innerText = `${score} / ${totalQuestions}`;
     }
-
-    let timeLeft = parseInt(time);
-    const timerElement = document.getElementById("timer");
-
-    function updateTimer() {
-        let minutes = Math.floor(timeLeft / 60);
-        let seconds = timeLeft % 60;
-        timerElement.innerText = `Time Left: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-        timeLeft--;
-
-        if (timeLeft < 0) {
-            clearInterval(timerInterval);
-            showQuizCompleted();
-        }
-    }
-
-    let timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
 }
