@@ -10,8 +10,8 @@ let quizData = storage.get(`${entered_code} ${time}`);
 if (!quizData || quizData.length <= 1) {
     alert(`Quiz not found or empty!`);
 } else {
-    let currentQuestionIndex = 1; // Start from index 1
-    let totalQuestions = quizData.length - 1; // Ignore index 0
+    let currentQuestionIndex = 1;
+    let totalQuestions = quizData.length - 1;
     let score = 0;
     let selectedAnswer = null;
 
@@ -28,6 +28,7 @@ if (!quizData || quizData.length <= 1) {
     startButton.addEventListener("click", () => {
         startButton.parentElement.classList.add("hidden");
         quizContent.classList.remove("hidden");
+        document.getElementById("timer").style.display = "block";
         loadQuestion();
     });
 
@@ -37,7 +38,7 @@ if (!quizData || quizData.length <= 1) {
             return;
         }
 
-        let currentQuestion = quizData[currentQuestionIndex]; // Start from index 1
+        let currentQuestion = quizData[currentQuestionIndex];
         questionNumber.innerText = `Question ${currentQuestionIndex} of ${totalQuestions}`;
         questionContainer.innerText = currentQuestion[0];
         optionsContainer.innerHTML = "";
@@ -46,7 +47,7 @@ if (!quizData || quizData.length <= 1) {
         for (let i = 1; i <= 4; i++) {
             const li = document.createElement("li");
             li.innerText = currentQuestion[i];
-            li.dataset.option = String.fromCharCode(64 + i); // Convert 1 -> A, 2 -> B, etc.
+            li.dataset.option = String.fromCharCode(64 + i);
             li.addEventListener("click", () => selectOption(li));
             optionsContainer.appendChild(li);
         }
@@ -64,7 +65,7 @@ if (!quizData || quizData.length <= 1) {
     nextButton.addEventListener("click", () => {
         if (!selectedAnswer) return;
 
-        let correctAnswer = quizData[currentQuestionIndex][5]; // quizData[5] contains the correct answer
+        let correctAnswer = quizData[currentQuestionIndex][5];
         if (selectedAnswer === correctAnswer) {
             score++;
         }
