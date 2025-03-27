@@ -6,13 +6,24 @@ if (storedData) {
     storage = new Map(Object.entries(parsedData));
     console.log(storage);
 }
-
+document.getElementById("loginbar").addEventListener("click", function(event) {
+    event.preventDefault();
+    if(document.getElementById("loginbar").textContent == "Log Out"){
+        window.location.href = "./index.html";
+        document.getElementById("loginbar").textContent = "Log In";
+        user = null;
+        localStorage.setItem("logged", user);
+    }
+    else{
+        window.location.href = "./pages/signup.html";
+    }
+});
 window.onload=function(){
-    const user = JSON.parse(localStorage.getItem("logged"));
+    user = JSON.parse(localStorage.getItem("logged"));
     console.log(user);
-    if(user.status == 1){
+    if(user && user.status == 1){
         const username = user.username;
-        document.getElementById("loginbar").classList.add("hide");
+        document.getElementById("loginbar").textContent = "Log Out";
         document.getElementById("signupbar").textContent = "Welcome Back, " + username;
         console.log(username);
     }

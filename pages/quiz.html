@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Page</title>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,9 +11,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            
             transition: background 1s ease-in-out;
             position: relative;
+            background: url('../asset/qbg1.jpg') no-repeat center center/cover;
         }
         .quiz-container {
             background: white;
@@ -73,6 +72,10 @@
             padding: 10px 20px;
             border-radius: 8px;
             font-size: 18px;
+            display: none;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -80,12 +83,35 @@
     <div class="timer" id="timer">Time Left: 00:30</div>
     <div class="quiz-container" id="quiz-container">
         <h1>Quizzy</h1>
-        <div id="question-container"></div>
-        <ul id="options-container" class="options"></ul>
-        <button id="next-btn">Next</button>
+        <div id="start-container">
+            <button id="start-btn">Start Quiz</button>
+        </div>
+        <div id="quiz-content" class="hidden">
+            <h3 id="question-number"></h3>
+            <div id="question-container"></div>
+            <ul id="options-container" class="options"></ul>
+            <button id="next-btn" class="hidden">Next</button>
+        </div>
+        <div id="score-container" class="hidden">
+            <h2>Quiz Completed!</h2>
+            <p>Your Score: <span id="score"></span></p>
+        </div>
     </div>
-    <script src="./javascript/q.js">
-        
+    <script>
+        const backgrounds = ['../asset/qbg1.jpg', '../asset/qbg2.jpg', '../asset/qbg3.jpg'];
+        let bgIndex = 0;
+
+        function changeBackground() {
+            document.body.style.background = `url('${backgrounds[bgIndex]}') no-repeat center center/cover`;
+            bgIndex = (bgIndex + 1) % backgrounds.length;
+        }
+
+        // Add event listener to the next button
+        document.getElementById("next-btn").addEventListener("click", function() {
+            changeBackground();
+        });
+
     </script>
+    <script src="./javascript/q.js"></script>
 </body>
 </html>
