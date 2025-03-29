@@ -22,7 +22,6 @@ document.getElementById("loginbar").addEventListener("click", function(event) {
 document.getElementById("signupforfree").addEventListener("click", function(){
     window.location.href="./pages/signup.html";
 });
-
 window.onload=function(){
     user = JSON.parse(localStorage.getItem("logged"));
     console.log(user);
